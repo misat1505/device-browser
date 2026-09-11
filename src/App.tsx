@@ -1,5 +1,13 @@
+import { devices } from "./data/devices";
+
 function App() {
-  return <div className="bg-green-500">Hello</div>;
+  return (
+    <div>
+      {devices.map((device) => (
+        <div key={device.id}>{device.name}</div>
+      ))}
+    </div>
+  );
 }
 
 export default App;
