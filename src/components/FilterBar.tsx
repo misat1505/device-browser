@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Search } from "lucide-react";
 import {
   ENERGY_CLASSES,
   DEVICE_CAPACITIES,
@@ -77,18 +76,20 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
     : "Pokaż wszystkie";
 
   return (
-    <div className="mb-6">
-      <div className="relative mb-5">
-        <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9AA2AF]" />
-        <input
-          type="text"
-          value={filters.search}
-          onChange={(e) => onChange({ ...filters, search: e.target.value })}
-          placeholder="Search..."
-          className="w-full rounded-lg border border-[#E5E8EF] bg-white py-2.5 pl-10 pr-3.5 text-[14px] text-[#11151C] placeholder:text-[#9AA2AF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1447E6]/40"
-          style={{ fontFamily: "Inter, sans-serif" }}
-        />
-      </div>
+    <div className="mb-6 mx-51.25">
+      <input
+        type="text"
+        value={filters.search}
+        onChange={(e) => onChange({ ...filters, search: e.target.value })}
+        placeholder="Search..."
+        className="ml-87.75 mr-107.5 mt-5.75 mb-8 flex flex-col items-start gap-2.5 px-3 py-2 bg-white placeholder:text-black"
+        style={{
+          fontFamily: "SamsungOne",
+          fontWeight: 400,
+          fontSize: "14px",
+          lineHeight: "22px",
+        }}
+      />
 
       <div className="mb-3 flex flex-wrap gap-3">
         <FilterDropdown
