@@ -19,7 +19,7 @@ export const devices: Device[] = [
     price: 3199,
     priceValidFrom: "2022-09-15",
     priceValidTo: "2022-09-21",
-    installment: { amount: 53.32, months: 60 },
+    installment: { amount: 53.31, months: 60 },
   },
   {
     id: "ww10t654dlh-b-biala",
@@ -28,7 +28,7 @@ export const devices: Device[] = [
     image: "/images/devices/ww10t654dlh-b-biala.png",
     capacity: 10.5,
     color: "biała",
-    dimensions: { width: 60, depth: 64, height: 85 },
+    dimensions: { width: 55, depth: 60, height: 85 },
     functions: [
       "Drzwi AddWash™",
       "Panel AI Control",
@@ -39,14 +39,14 @@ export const devices: Device[] = [
     price: 3199,
     priceValidFrom: "2022-09-15",
     priceValidTo: "2022-09-21",
-    installment: { amount: 53.32, months: 60 },
+    installment: { amount: 53.31, months: 60 },
   },
   {
     id: "ww90t654dlh-c-biala",
     model: "WW90T654DLH",
     name: "WW90T654DLH, Pralka EcoBubble™, 9 kg, biała",
     image: "/images/devices/ww90t654dlh-c-biala.png",
-    capacity: 9,
+    capacity: 9, // 8 on Figma, keep 9 for search
     color: "biała",
     dimensions: { width: 55, depth: 60, height: 85 },
     functions: [
@@ -59,7 +59,7 @@ export const devices: Device[] = [
     price: 3199,
     priceValidFrom: "2022-09-15",
     priceValidTo: "2022-09-21",
-    installment: { amount: 53.32, months: 60 },
+    installment: { amount: 53.31, months: 60 },
   },
   // row
   {

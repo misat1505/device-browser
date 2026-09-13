@@ -6,6 +6,7 @@ type FilterDropdownProps = {
   isOpen: boolean;
   onToggle: (open: boolean) => void;
   children: ReactNode;
+  idx: number;
 };
 
 export function FilterDropdown({
@@ -14,6 +15,7 @@ export function FilterDropdown({
   isOpen,
   onToggle,
   children,
+  idx,
 }: FilterDropdownProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,7 +32,7 @@ export function FilterDropdown({
   return (
     <div ref={ref} className="relative flex-1 min-w-37.5">
       <span
-        className="mb-1.75 block text-black"
+        className={`mb-1.75 block text-black ${idx < 2 ? "translate-y-0.5" : null}`}
         style={{
           fontFamily: "SamsungOne",
           fontStyle: "normal",
@@ -60,6 +62,7 @@ export function FilterDropdown({
           viewBox="0 0 12 10"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className={idx >= 2 ? "translate-x-1.75 translate-y-px" : ""}
         >
           <path
             d="M5.62915 9.75L11.2583 0H-1.4782e-05L5.62915 9.75Z"

@@ -76,13 +76,13 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
     : "Pokaż wszystkie";
 
   return (
-    <div className="mb-3 mx-51.25">
+    <div className="mb-3 ml-51.25 mr-50.75">
       <input
         type="text"
         value={filters.search}
         onChange={(e) => onChange({ ...filters, search: e.target.value })}
         placeholder="Search..."
-        className="ml-87.75 mr-107.5 mt-5.75 mb-8 flex flex-col items-start gap-2.5 px-3 py-2 bg-white placeholder:text-black"
+        className="ml-87.75 mr-107.5 mt-5.75 mb-8 flex flex-col items-start gap-2.5 px-3 py-2 bg-white placeholder:text-black translate-y-0.5"
         style={{
           fontFamily: "SamsungOne",
           fontWeight: 400,
@@ -97,6 +97,7 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           value={sortLabel}
           isOpen={openDropdown === "sort"}
           onToggle={(open) => setOpenDropdown(open ? "sort" : null)}
+          idx={0}
         >
           {SORT_OPTIONS.map((o) => (
             <OptionRow
@@ -115,6 +116,7 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           value={functionsLabel}
           isOpen={openDropdown === "functions"}
           onToggle={(open) => setOpenDropdown(open ? "functions" : null)}
+          idx={1}
         >
           {ALL_FUNCTIONS.map((fn) => (
             <OptionRow key={fn} label={fn} onClick={() => toggleFunction(fn)} />
@@ -126,6 +128,7 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           value={energyLabel}
           isOpen={openDropdown === "energy"}
           onToggle={(open) => setOpenDropdown(open ? "energy" : null)}
+          idx={2}
         >
           {ENERGY_CLASSES.map((ec) => (
             <OptionRow
@@ -141,6 +144,7 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           value={capacityLabel}
           isOpen={openDropdown === "capacity"}
           onToggle={(open) => setOpenDropdown(open ? "capacity" : null)}
+          idx={3}
         >
           {DEVICE_CAPACITIES.map((cap) => (
             <OptionRow

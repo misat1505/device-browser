@@ -49,7 +49,7 @@ function filterAndSortDevices(
 
 export default function DevicesDisplay({ devices }: { devices: Device[] }) {
   const [filters, setFilters] = useState<DeviceFilters>(DEFAULT_FILTERS);
-  const [selectedId, setSelectedId] = useState<string>(devices[0]?.id ?? "");
+  const [selectedId, setSelectedId] = useState<string>(devices[2]?.id ?? "");
 
   const filteredDevices = useMemo(
     () => filterAndSortDevices(devices, filters),
@@ -57,7 +57,7 @@ export default function DevicesDisplay({ devices }: { devices: Device[] }) {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#F7F8FB]">
+    <div className="min-h-screen w-full bg-[#F7F8FB] -translate-y-0.5">
       <div className="h-16.5 bg-white">
         <h1
           className="text-center"
@@ -81,19 +81,20 @@ export default function DevicesDisplay({ devices }: { devices: Device[] }) {
           resultCount={filteredDevices.length}
         />
 
-        <div className="grid gap-5 grid-cols-3 px-48">
-          {filteredDevices.map((d) => (
+        <div className="grid gap-x-4 gap-y-5 grid-cols-3 pl-48 pr-50.5">
+          {filteredDevices.map((d, idx) => (
             <DeviceDisplay
               key={d.id}
               device={d}
               isSelected={d.id === selectedId}
               onSelect={setSelectedId}
+              isDisplayingInstallment={idx < 3} // don't know what the logic is, let's say first row
             />
           ))}
         </div>
       </div>
 
-      <button className="flex h-5 w-29.5 ml-224 mt-5 mb-13.5 items-center gap-2.25">
+      <button className="flex h-5 w-29.5 mx-auto -translate-x-1.25 mt-5 mb-13.5 items-center gap-2.25">
         <span
           className="h-5 w-25.5 text-center text-[18px] font-bold leading-5 text-[#007AFF]"
           style={{
