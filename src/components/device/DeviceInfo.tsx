@@ -6,6 +6,21 @@ type DeviceInfoProps = {
 };
 
 export function DeviceInfo({ device }: DeviceInfoProps) {
+  const specs = [
+    {
+      label: "Pojemność (kg):",
+      value: device.capacity.toString().replace(".", ","),
+    },
+    {
+      label: "Wymiary (SxGxW):",
+      value: `${device.dimensions.width} x ${device.dimensions.depth} x ${device.dimensions.height} cm`,
+    },
+    {
+      label: "Funkcje:",
+      value: device.functions.join(", "),
+    },
+  ];
+
   return (
     <div className="mt-3 mb-4">
       <h3
@@ -31,59 +46,28 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
           fontSize: "12px",
         }}
       >
-        <p>
-          Pojemność (kg):{" "}
-          <span
-            className="text-[#11151C]"
-            style={{
-              fontFamily: "SamsungOne",
-              fontStyle: "normal",
-              fontWeight: 700,
-              lineHeight: "18px",
-              fontSize: "12px",
-            }}
-          >
-            {device.capacity.toString().replace(".", ",")}
-          </span>
-        </p>
-
-        <p>
-          Wymiary (SxGxW):{" "}
-          <span
-            className="text-[#11151C]"
-            style={{
-              fontFamily: "SamsungOne",
-              fontStyle: "normal",
-              fontWeight: 700,
-              lineHeight: "18px",
-              fontSize: "12px",
-            }}
-          >
-            {device.dimensions.width} x {device.dimensions.depth} x{" "}
-            {device.dimensions.height} cm
-          </span>
-        </p>
-
-        <p>
-          Funkcje:{" "}
-          <span
-            className="text-[#11151C]"
-            style={{
-              fontFamily: "SamsungOne",
-              fontStyle: "normal",
-              fontWeight: 700,
-              lineHeight: "18px",
-              fontSize: "12px",
-            }}
-          >
-            {device.functions.join(", ")}
-          </span>
-        </p>
+        {specs.map(({ label, value }) => (
+          <div key={label}>
+            <h4 className="inline-block">{label}</h4>{" "}
+            <span
+              className="text-[#11151C]"
+              style={{
+                fontFamily: "SamsungOne",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "18px",
+                fontSize: "12px",
+              }}
+            >
+              {value}
+            </span>
+          </div>
+        ))}
       </div>
 
       <div className="mt-3.5 flex items-center gap-2">
-        <span
-          className="text-[#767676]"
+        <h4
+          className="text-[#767676] inline-block"
           style={{
             fontFamily: "SamsungOne",
             fontStyle: "normal",
@@ -93,7 +77,7 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
           }}
         >
           Klasa energetyczna
-        </span>
+        </h4>
 
         <EnergyBadge energyClass={device.energyClass} />
       </div>

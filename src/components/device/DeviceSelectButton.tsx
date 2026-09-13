@@ -2,12 +2,14 @@ import type { Device } from "../../types/device";
 
 type DeviceSelectButtonProps = {
   deviceId: Device["id"];
+  deviceName: string;
   isSelected: boolean;
   onSelect: (id: Device["id"]) => void;
 };
 
 export function DeviceSelectButton({
   deviceId,
+  deviceName,
   isSelected,
   onSelect,
 }: DeviceSelectButtonProps) {
@@ -15,6 +17,8 @@ export function DeviceSelectButton({
     <button
       type="button"
       onClick={() => onSelect(deviceId)}
+      aria-label={`${isSelected ? "Wybrane" : "Wybierz"} urządzenie ${deviceName}`}
+      aria-pressed={isSelected}
       className={`mx-auto mt-3.5 flex h-9 items-center justify-center gap-2.5 rounded-3xl px-10 py-3.5 leading-4 uppercase tracking-[0.15em] transition-colors ${
         isSelected
           ? "w-39.5 bg-[#11151C] text-white"

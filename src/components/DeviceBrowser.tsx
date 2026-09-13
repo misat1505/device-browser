@@ -16,17 +16,18 @@ export default function DeviceBrowser({ devices }: { devices: Device[] }) {
           resultCount={useDeviceFiltersValues.filteredDevices.length}
         />
 
-        <div className="grid gap-x-4 gap-y-5 grid-cols-3 pl-48 pr-50.5">
+        <ul className="grid gap-x-4 gap-y-5 grid-cols-3 pl-48 pr-50.5">
           {useDeviceFiltersValues.filteredDevices.map((d, idx) => (
-            <DeviceDisplay
-              key={d.id}
-              device={d}
-              isSelected={d.id === useDeviceFiltersValues.selectedId}
-              onSelect={useDeviceFiltersValues.setSelectedId}
-              isDisplayingInstallment={idx < 3} // don't know what the logic is, let's say first row
-            />
+            <li key={d.id}>
+              <DeviceDisplay
+                device={d}
+                isSelected={d.id === useDeviceFiltersValues.selectedId}
+                onSelect={useDeviceFiltersValues.setSelectedId}
+                isDisplayingInstallment={idx < 3} // don't know what the logic is, let's say first row
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <ShowMoreButton />

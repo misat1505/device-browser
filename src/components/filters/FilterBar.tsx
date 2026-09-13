@@ -166,6 +166,7 @@ export function FilterBar({ filterState, resultCount }: FilterBarProps) {
                 label={option.label}
                 className={option.className}
                 onClick={option.onClick}
+                isSelected={dropdown.value === option.label}
               />
             ))}
           </FilterDropdown>
@@ -174,6 +175,8 @@ export function FilterBar({ filterState, resultCount }: FilterBarProps) {
 
       <p
         className="ml-0.75 text-black"
+        aria-live="polite"
+        aria-atomic="true"
         style={{
           fontFamily: "SamsungOne",
           fontWeight: 400,

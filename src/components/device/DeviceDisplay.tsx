@@ -38,6 +38,7 @@ export function DeviceDisplay({
       )}
 
       <DeviceSelectButton
+        deviceName={device.name}
         deviceId={device.id}
         isSelected={isSelected}
         onSelect={onSelect}

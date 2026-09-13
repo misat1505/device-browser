@@ -11,6 +11,8 @@ export function DropdownArrow({ className = "" }: DropdownArrowProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      aria-hidden="true"
+      focusable="false"
     >
       <path
         d="M5.62915 9.75L11.2583 0H-1.4782e-05L5.62915 9.75Z"
