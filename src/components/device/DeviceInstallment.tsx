@@ -6,7 +6,7 @@ type DeviceInstallmentProps = {
 export function DeviceInstallment({ amount, months }: DeviceInstallmentProps) {
   return (
     <p
-      className="mt-3.5 text-[#555555]"
+      className="mt-3.5 text-[#555555] -translate-y-px"
       style={{
         fontFamily: "SamsungOne",
         fontStyle: "normal",
