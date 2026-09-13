@@ -1,5 +1,5 @@
 import type { Device } from "../types/device";
-import { EnergyBadge } from "./EnergyBadge";
+import { EnergyBadge } from "./device/EnergyBadge";
 
 type DeviceDisplayProps = {
   device: Device;

@@ -1,4 +1,4 @@
-import type { Device } from "../types/device";
+import type { Device } from "../../types/device";
 
 export function EnergyBadge({ energyClass }: Pick<Device, "energyClass">) {
   const width = 49;
