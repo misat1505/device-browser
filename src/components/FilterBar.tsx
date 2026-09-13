@@ -76,7 +76,7 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
     : "Pokaż wszystkie";
 
   return (
-    <div className="mb-6 mx-51.25">
+    <div className="mb-3 mx-51.25">
       <input
         type="text"
         value={filters.search}
@@ -91,7 +91,7 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
         }}
       />
 
-      <div className="mb-3 flex flex-wrap gap-3">
+      <div className="mb-2 flex flex-wrap gap-3">
         <FilterDropdown
           label="Sortuj po:"
           value={sortLabel}
@@ -153,8 +153,14 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
       </div>
 
       <p
-        className="text-[13px] text-[#6B7280]"
-        style={{ fontFamily: "Inter, sans-serif" }}
+        className="text-black ml-0.75"
+        style={{
+          fontFamily: "SamsungOne",
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "22px",
+          fontSize: "14px",
+        }}
       >
         Liczba wyników: {resultCount}
       </p>

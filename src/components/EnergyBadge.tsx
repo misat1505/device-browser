@@ -18,7 +18,7 @@ export function EnergyBadge({ energyClass }: Pick<Device, "energyClass">) {
           fontSize="12"
           fontWeight="700"
           fill="#fff"
-          fontFamily="Inter, sans-serif"
+          fontFamily="SamsungOne"
         >
           {energyClass}
         </text>

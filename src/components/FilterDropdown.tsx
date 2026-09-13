@@ -1,5 +1,4 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
 
 type FilterDropdownProps = {
   label: string;
@@ -31,24 +30,45 @@ export function FilterDropdown({
   return (
     <div ref={ref} className="relative flex-1 min-w-37.5">
       <span
-        className="mb-1.5 block text-[13px] font-medium text-[#6B7280]"
-        style={{ fontFamily: "Inter, sans-serif" }}
+        className="mb-1.75 block text-black"
+        style={{
+          fontFamily: "SamsungOne",
+          fontStyle: "normal",
+          fontWeight: 700,
+          lineHeight: "22px",
+          fontSize: "18px",
+        }}
       >
         {label}
       </span>
       <button
         type="button"
         onClick={() => onToggle(!isOpen)}
-        className="flex w-full items-center justify-between rounded-lg border border-[#E5E8EF] bg-white px-3.5 py-2.5 text-left text-[14px] text-[#11151C] transition-colors hover:border-[#C7CDDA] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1447E6]/40"
-        style={{ fontFamily: "Inter, sans-serif" }}
+        className="flex w-full items-center justify-between bg-white pl-3 pr-4.75 py-2 text-black"
+        style={{
+          fontFamily: "SamsungOne",
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "22px",
+          fontSize: "14px",
+        }}
       >
         <span className="truncate">{value}</span>
-        <ChevronDown
-          className={`h-4 w-4 shrink-0 text-[#9AA2AF] transition-transform ${isOpen ? "rotate-180" : ""}`}
-        />
+        <svg
+          width="12"
+          height="10"
+          viewBox="0 0 12 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.62915 9.75L11.2583 0H-1.4782e-05L5.62915 9.75Z"
+            fill="#8D8D8D"
+          />
+        </svg>
       </button>
       {isOpen && (
-        <div className="absolute z-20 mt-1.5 w-full min-w-52.5 overflow-hidden rounded-lg border border-[#E5E8EF] bg-white py-1.5 shadow-[0_8px_24px_rgba(17,21,28,0.12)]">
+        <div className="absolute z-20 mt-1.5 w-full min-w-52.5 overflow-hidden bg-[#FDFDFD] shadow-[4px_4px_4px_rgba(0, 0, 0, 0.02)]">
           {children}
         </div>
       )}

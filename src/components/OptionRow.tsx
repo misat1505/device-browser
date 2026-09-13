@@ -8,8 +8,15 @@ export function OptionRow({ label, onClick }: OptionRowProps) {
     <button
       type="button"
       onClick={onClick}
-      className="flex w-full items-center gap-2.5 px-3.5 py-2 text-left text-[14px] text-[#11151C] hover:bg-[#F7F8FB]"
-      style={{ fontFamily: "Inter, sans-serif" }}
+      className="w-full px-4.25 py-2 text-left hover:bg-[#F7F8FB]"
+      style={{
+        fontFamily: "SamsungOne",
+        fontStyle: "normal",
+        fontWeight: 400,
+        fontSize: "12px",
+        lineHeight: "22px",
+        color: "#000000",
+      }}
     >
       <span className="truncate">{label}</span>
     </button>

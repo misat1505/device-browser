@@ -12,10 +12,21 @@ export function DeviceDisplay({
   isSelected,
   onSelect,
 }: DeviceDisplayProps) {
+  function formatPrice(price: Device["price"]) {
+    const number = Math.trunc(price).toString();
+
+    if (number.length <= 3) return number;
+
+    const thousands = number.slice(0, -3);
+    const rest = number.slice(-3);
+
+    return `${thousands} ${rest}`;
+  }
+
   return (
     <div
       key={device.id}
-      className="w-84.5 h-150.75 flex flex-col rounded-[10px] bg-white px-6 py-6.25"
+      className="w-84.5 h-150.75 flex flex-col rounded-[20px] bg-white px-6 py-6.25"
     >
       <div className="h-50">
         <img className="h-50 mx-auto" src={device.image} alt={device.name} />
@@ -23,7 +34,7 @@ export function DeviceDisplay({
 
       <div className="mt-3 mb-4">
         <h3
-          className="pb-6.75 text-black "
+          className="pb-7.25 text-black "
           style={{
             fontFamily: "SamsungOne",
             fontStyle: "normal",
@@ -32,67 +43,112 @@ export function DeviceDisplay({
             fontSize: "18px",
           }}
         >
-          {device.model}, {device.name.replace(/^Pralka [^,]+, /, "")}
+          {device.name}
         </h3>
 
         <div
-          className="mb-3 space-y-1 text-[12.5px] leading-relaxed text-[#6B7280]"
-          style={{ fontFamily: "Inter, sans-serif" }}
+          className="mt-2 text-[#767676]"
+          style={{
+            fontFamily: "SamsungOne",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "18px",
+            fontSize: "12px",
+          }}
         >
           <p>
             Pojemność (kg):{" "}
-            <span className="font-semibold text-[#11151C]">
+            <span
+              className="text-[#11151C]"
+              style={{
+                fontFamily: "SamsungOne",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "18px",
+                fontSize: "12px",
+              }}
+            >
               {device.capacity}
             </span>
           </p>
           <p>
             Wymiary (SxGxW):{" "}
-            <span className="font-semibold text-[#11151C]">
+            <span
+              className="text-[#11151C]"
+              style={{
+                fontFamily: "SamsungOne",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "18px",
+                fontSize: "12px",
+              }}
+            >
               {device.dimensions.width} x {device.dimensions.depth} x{" "}
               {device.dimensions.height} cm
             </span>
           </p>
           <p>
             Funkcje:{" "}
-            <span className="font-semibold text-[#11151C]">
+            <span
+              className="text-[#11151C]"
+              style={{
+                fontFamily: "SamsungOne",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "18px",
+                fontSize: "12px",
+              }}
+            >
               {device.functions.join(", ")}
             </span>
           </p>
         </div>
-
-        <div className="mb-3 flex items-center gap-2">
+        <div className="my-3.5 flex items-center gap-2">
           <span
-            className="text-[12.5px] text-[#6B7280]"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="text-[#767676]"
+            style={{
+              fontFamily: "SamsungOne",
+              fontStyle: "normal",
+              fontWeight: 400,
+              lineHeight: "18px",
+              fontSize: "12px",
+            }}
           >
             Klasa energetyczna
           </span>
           <EnergyBadge energyClass={device.energyClass} />
         </div>
 
-        <p
-          className="mb-2 text-[11.5px] text-[#9AA2AF]"
-          style={{ fontFamily: "Inter, sans-serif" }}
-        >
-          Cena obowiązuje:{" "}
-          {device.priceValidFrom.split("-").reverse().join(".")} -{" "}
-          {device.priceValidTo.split("-").reverse().join(".")}
-        </p>
-
         <div
-          className="mb-1 flex items-baseline gap-1"
-          style={{ fontFamily: "Sora, sans-serif" }}
+          className="flex flex-col items-start gap-px mb-3.5"
+          style={{ fontFamily: "SamsungOne" }}
         >
-          <span className="text-[26px] font-semibold text-[#11151C]">
-            {Math.trunc(device.price)}
-          </span>
-          <span className="text-[13px] font-semibold text-[#11151C]">
-            {(device.price % 1).toFixed(2).slice(2)} zł
-          </span>
+          <p className="m-0 text-[12px] leading-4.5 font-normal text-[#767676]">
+            Cena obowiązuje:{" "}
+            {device.priceValidFrom.split("-").reverse().join(".")} -{" "}
+            {device.priceValidTo.split("-").reverse().join(".")}
+          </p>
+
+          <div className="flex h-10 items-center gap-0.5">
+            <span className="text-[40px] leading-10 font-bold text-black">
+              {formatPrice(device.price)}
+            </span>
+
+            <span className="w-4.75 text-right text-[14px] leading-4 font-bold text-black">
+              {(device.price % 1).toFixed(2).slice(2)} zł
+            </span>
+          </div>
         </div>
+
         <p
-          className="mb-4 text-[12.5px] text-[#6B7280]"
-          style={{ fontFamily: "Inter, sans-serif" }}
+          className="text-[#555555]"
+          style={{
+            fontFamily: "SamsungOne",
+            fontStyle: "normal",
+            fontWeight: 700,
+            lineHeight: "18px",
+            fontSize: "16px",
+          }}
         >
           {device.installment.amount.toFixed(2).replace(".", ",")} zł x{" "}
           {device.installment.months} rat
@@ -102,12 +158,12 @@ export function DeviceDisplay({
       <button
         type="button"
         onClick={() => onSelect(device.id)}
-        className={`mt-auto rounded-full py-2.5 text-[13px] font-semibold tracking-wide transition-colors ${
+        className={`mx-auto flex h-9 w-37.5 items-center justify-center gap-2.5 rounded-3xl px-10 py-3.5 text-[14px] leading-4 font-bold uppercase tracking-[0.15em] transition-colors ${
           isSelected
             ? "bg-[#11151C] text-white"
-            : "bg-[#1447E6] text-white hover:bg-[#0F3DB8]"
+            : "bg-[#1428A0] text-white hover:bg-[#1428A0]"
         }`}
-        style={{ fontFamily: "Inter, sans-serif" }}
+        style={{ fontFamily: "SamsungOne" }}
       >
         {isSelected ? "WYBRANE" : "WYBIERZ"}
       </button>
