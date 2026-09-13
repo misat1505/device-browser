@@ -85,7 +85,6 @@ export function FilterBar({ filterState, resultCount }: FilterBarProps) {
       label: "Funkcje:",
       value: functionsLabel,
       labelOffset: true,
-      arrowOffset: true,
       options: [
         {
           label: "Wszystkie",
@@ -102,6 +101,7 @@ export function FilterBar({ filterState, resultCount }: FilterBarProps) {
       key: "energy",
       label: "Klasa energetyczna:",
       value: energyLabel,
+      arrowOffset: true,
       options: [
         {
           label: "Wszystkie",
@@ -118,6 +118,7 @@ export function FilterBar({ filterState, resultCount }: FilterBarProps) {
       key: "capacity",
       label: "Pojemność:",
       value: capacityLabel,
+      arrowOffset: true,
       options: [
         {
           label: "Wszystkie",

@@ -1,4 +1,5 @@
 import type { Device } from "../../types/device";
+import { EnergyBadge } from "./EnergyBadge";
 
 type DeviceInfoProps = {
   device: Device;
@@ -32,25 +33,69 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
       >
         <p>
           Pojemność (kg):{" "}
-          <strong className="text-[#11151C]">
+          <span
+            className="text-[#11151C]"
+            style={{
+              fontFamily: "SamsungOne",
+              fontStyle: "normal",
+              fontWeight: 700,
+              lineHeight: "18px",
+              fontSize: "12px",
+            }}
+          >
             {device.capacity.toString().replace(".", ",")}
-          </strong>
+          </span>
         </p>
 
         <p>
           Wymiary (SxGxW):{" "}
-          <strong className="text-[#11151C]">
+          <span
+            className="text-[#11151C]"
+            style={{
+              fontFamily: "SamsungOne",
+              fontStyle: "normal",
+              fontWeight: 700,
+              lineHeight: "18px",
+              fontSize: "12px",
+            }}
+          >
             {device.dimensions.width} x {device.dimensions.depth} x{" "}
             {device.dimensions.height} cm
-          </strong>
+          </span>
         </p>
 
         <p>
           Funkcje:{" "}
-          <strong className="text-[#11151C]">
+          <span
+            className="text-[#11151C]"
+            style={{
+              fontFamily: "SamsungOne",
+              fontStyle: "normal",
+              fontWeight: 700,
+              lineHeight: "18px",
+              fontSize: "12px",
+            }}
+          >
             {device.functions.join(", ")}
-          </strong>
+          </span>
         </p>
+      </div>
+
+      <div className="mt-3.5 flex items-center gap-2">
+        <span
+          className="text-[#767676]"
+          style={{
+            fontFamily: "SamsungOne",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "18px",
+            fontSize: "12px",
+          }}
+        >
+          Klasa energetyczna
+        </span>
+
+        <EnergyBadge energyClass={device.energyClass} />
       </div>
     </div>
   );

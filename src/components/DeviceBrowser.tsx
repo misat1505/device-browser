@@ -1,7 +1,7 @@
 import React from "react";
 import { type Device } from "../types/device";
 import { FilterBar } from "./filters/FilterBar";
-import { DeviceDisplay } from "./DeviceDisplay";
+import { DeviceDisplay } from "./device/DeviceDisplay";
 import { ShowMoreButton } from "./ShowMoreButton";
 import { useDeviceFilters } from "../hooks/useDeviceFilters";
 

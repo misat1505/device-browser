@@ -1,5 +1,4 @@
 import type { Device } from "../../types/device";
-import { EnergyBadge } from "./EnergyBadge";
 import { DeviceImage } from "./DeviceImage";
 import { DeviceInfo } from "./DeviceInfo";
 import { DeviceInstallment } from "./DeviceInstallment";
@@ -24,8 +23,6 @@ export function DeviceDisplay({
       <DeviceImage src={device.image} alt={device.name} />
 
       <DeviceInfo device={device} />
-
-      <EnergyBadge energyClass={device.energyClass} />
 
       <DevicePrice
         price={device.price}
