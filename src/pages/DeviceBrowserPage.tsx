@@ -1,24 +1,22 @@
 import DeviceBrowser from "../components/DeviceBrowser";
+import { DeviceBrowserPageHeader } from "../components/DeviceBrowserPageHeader";
 import { devices } from "../data/devices";
 
 export function DeviceBrowserPage() {
+  // The devices are imported directly from a file, because there is no backend.
+  // If they were fetched from external API, there would have been an API call,
+  // for example:
+  //
+  // const { data: devices, isPending, isError } = useQuery({
+  //   queryKey: ["devices"],
+  //   queryFn: getDevices
+  // });
+  //
+  // isPending and isError states would be displayed accordingly.
+
   return (
     <div className="min-h-screen w-full bg-[#F7F8FB] -translate-y-0.5">
-      <div className="h-16.5 bg-white">
-        <h1
-          className="text-center"
-          style={{
-            fontFamily: "SamsungOne",
-            fontStyle: "normal",
-            fontWeight: 700,
-            fontSize: "40px",
-            lineHeight: "56px",
-            color: "#000000",
-          }}
-        >
-          Wybierz urządzenie
-        </h1>
-      </div>
+      <DeviceBrowserPageHeader />
 
       <DeviceBrowser devices={devices} />
 

@@ -6,7 +6,11 @@ import { DeviceBrowserPage } from "./pages/DeviceBrowserPage";
 // in this example we have 1 page so there is no need for it
 
 function App() {
-  return <DeviceBrowserPage />;
+  return (
+    <main>
+      <DeviceBrowserPage />
+    </main>
+  );
 }
 
 export default App;

@@ -23,7 +23,7 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
 
   return (
     <div className="mt-3 mb-4">
-      <h3
+      <h2
         className="pb-7.25 text-black"
         style={{
           fontFamily: "SamsungOne",
@@ -34,7 +34,7 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
         }}
       >
         {device.name}
-      </h3>
+      </h2>
 
       <div
         className="mt-2 text-[#767676]"
@@ -48,7 +48,7 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
       >
         {specs.map(({ label, value }) => (
           <div key={label}>
-            <h4 className="inline-block">{label}</h4>{" "}
+            <span className="inline-block">{label}</span>{" "}
             <span
               className="text-[#11151C]"
               style={{
@@ -66,7 +66,7 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
       </div>
 
       <div className="mt-3.5 flex items-center gap-2">
-        <h4
+        <span
           className="text-[#767676] inline-block"
           style={{
             fontFamily: "SamsungOne",
@@ -77,7 +77,7 @@ export function DeviceInfo({ device }: DeviceInfoProps) {
           }}
         >
           Klasa energetyczna
-        </h4>
+        </span>
 
         <EnergyBadge energyClass={device.energyClass} />
       </div>
