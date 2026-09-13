@@ -71,7 +71,7 @@ export function FilterDropdown({
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute z-20 mt-1.5 w-full min-w-52.5 overflow-hidden bg-[#FDFDFD] shadow-[4px_4px_4px_rgba(0, 0, 0, 0.02)]">
+        <div className="absolute z-20 mt-1.5 w-full min-w-52.5 bg-[#FDFDFD] shadow-[4px_4px_4px_rgba(0,0,0,0.02)]">
           {children}
         </div>
       )}

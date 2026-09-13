@@ -99,6 +99,14 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           onToggle={(open) => setOpenDropdown(open ? "sort" : null)}
           idx={0}
         >
+          <OptionRow
+            label="Wszystkie"
+            className="-pt-px"
+            onClick={() => {
+              onChange({ ...filters, sortBy: "popularność" });
+              setOpenDropdown(null);
+            }}
+          />
           {SORT_OPTIONS.map((o) => (
             <OptionRow
               key={o.value}
@@ -118,6 +126,15 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           onToggle={(open) => setOpenDropdown(open ? "functions" : null)}
           idx={1}
         >
+          <OptionRow
+            label="Wszystkie"
+            className="-pt-px"
+            onClick={() => {
+              onChange({ ...filters, functions: [] });
+              setOpenDropdown(null);
+            }}
+          />
+
           {ALL_FUNCTIONS.map((fn) => (
             <OptionRow key={fn} label={fn} onClick={() => toggleFunction(fn)} />
           ))}
@@ -130,6 +147,15 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           onToggle={(open) => setOpenDropdown(open ? "energy" : null)}
           idx={2}
         >
+          <OptionRow
+            label="Wszystkie"
+            className="-pt-px"
+            onClick={() => {
+              onChange({ ...filters, energyClass: [] });
+              setOpenDropdown(null);
+            }}
+          />
+
           {ENERGY_CLASSES.map((ec) => (
             <OptionRow
               key={ec}
@@ -146,10 +172,19 @@ export function FilterBar({ filters, onChange, resultCount }: FilterBarProps) {
           onToggle={(open) => setOpenDropdown(open ? "capacity" : null)}
           idx={3}
         >
+          <OptionRow
+            label="Wszystkie"
+            className="-pt-px"
+            onClick={() => {
+              onChange({ ...filters, capacities: [] });
+              setOpenDropdown(null);
+            }}
+          />
+
           {DEVICE_CAPACITIES.map((cap) => (
             <OptionRow
               key={cap}
-              label={`${cap} kg`}
+              label={`${cap}kg`}
               onClick={() => toggleCapacity(cap)}
             />
           ))}
